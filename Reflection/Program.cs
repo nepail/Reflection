@@ -19,6 +19,21 @@ Assembly assembly3 = Assembly.LoadFrom(@"SqlServerDB.dll");
 // 取得類型
 Type type = assembly3.GetType("SqlServerDB.ReflectionTest");
 
+// 找出所有類型
+foreach(var item in assembly3.GetTypes())
+{
+    Console.WriteLine(item.Name);
+}
+
+foreach(var ctor in type.GetConstructors(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public))
+{
+    Console.WriteLine($"方法: {ctor.Name}");
+    foreach(var param in ctor.GetParameters())
+    {
+        Console.WriteLine($"方法的參數:{param.ParameterType}");
+    }
+}
+
 // 靜態實例化
 //ReflectionTest reflectionTest = new ReflectionTest();
 // 動態實例化
