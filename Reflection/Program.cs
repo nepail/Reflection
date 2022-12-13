@@ -20,13 +20,16 @@ Assembly assembly3 = Assembly.LoadFrom(@"SqlServerDB.dll");
 Type type = assembly3.GetType("SqlServerDB.ReflectionTest");
 
 // 靜態實例化
-ReflectionTest reflectionTest = new ReflectionTest();
+//ReflectionTest reflectionTest = new ReflectionTest();
 // 動態實例化
 // method 1 無參數方法呼叫
 //object objTest1 = Activator.CreateInstance(type);
 
 // method 2 有參數方法呼叫
-object objTest1 = Activator.CreateInstance(type, new object[] {"123"});
+//object objTest1 = Activator.CreateInstance(type, new object[] {"123"});
+
+// method 3 私有呼叫
+object objTest2 = Activator.CreateInstance(type, true);
 
 Console.Read();
 

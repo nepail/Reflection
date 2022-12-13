@@ -11,10 +11,16 @@ namespace SqlServerDB
     /// </summary>
     public class ReflectionTest
     {
-        public ReflectionTest()
+        private ReflectionTest()
         {
-            Console.WriteLine("無參數構造方法");
+            Console.WriteLine("私有方法被呼叫");
         }
+
+
+        //public ReflectionTest()
+        //{
+        //    Console.WriteLine("無參數構造方法");
+        //}
 
         public ReflectionTest(string name)
         {
